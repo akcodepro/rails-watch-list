@@ -5,6 +5,7 @@
       <% @lists.each do |l| %>
         <li>
           <%= link_to l.name, list_path(l) %>
+          <%= button_to "X", list_path(l), method: :delete %>
         </li>
       <% end %>
     </ul>
