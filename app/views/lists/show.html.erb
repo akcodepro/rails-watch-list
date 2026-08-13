@@ -1,4 +1,11 @@
 <div class="container">
   <h1><%= @list.name %></h1>
   <%= link_to "Back to all lists", lists_path %>
+  <div class="container">
+    <% @list.movies.each do |m| %>
+      <h2><%= m.title %></h2>
+      <% bookmark = Bookmark.find_by(list: @list, movie: m) %>
+      <%= bookmark.comment %>
+    <% end %>
+  </div>
 </div>
